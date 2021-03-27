@@ -51,7 +51,7 @@ class Downloader:
 
                     image_file.write(block)
             print(f"Will sleep for {self.time_to_sleep} seconds.\n")
-            time.sleep(self.time_to_sleep)
+            time.sleep(int(self.time_to_sleep))
 
 
 if __name__ == "__main__":
