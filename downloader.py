@@ -7,6 +7,7 @@ from urllib import parse
 
 
 log = logging.getLogger(__name__)
+log.setLevel(logging.INFO)
 
 
 class Downloader:
@@ -68,7 +69,7 @@ class Downloader:
             log.info("Will sleep before next request.")
             time.sleep(self.time_to_sleep)
 
-        raise ConnectionError(f"Status code: {res.status_code}.")
+        return image_list
 
     def download_images(self):
 
