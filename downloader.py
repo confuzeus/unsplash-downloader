@@ -17,7 +17,7 @@ class Downloader:
         self.time_to_sleep = int(
             os.getenv("SLEEP_FOR", sys.argv[2])
         )  # Sleep for x seconds between each request.
-        image_count = os.getenv("IMAGE_COUNT", sys.argv[3])
+        image_count = int(os.getenv("IMAGE_COUNT", sys.argv[3]))
         self.destination_dir = os.getenv("DESTINATION_DIR", sys.argv[4])
 
         # Unsplash allows fetching up to 30 images in one bundle.
