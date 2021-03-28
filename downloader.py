@@ -22,7 +22,7 @@ class Downloader:
 
         # Unsplash allows fetching up to 30 images in one bundle.
         # We have to iterate image_count / 30 times to get the desired amount.
-        self.iteration_count = image_count / 30
+        self.iteration_count = int(image_count / 30)
         self.unsplash_api_url = (
             "https://api.unsplash.com/" "photos/random/?count=30)"
         )  # noqa
