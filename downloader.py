@@ -24,7 +24,7 @@ class Downloader:
         # We have to iterate image_count / 30 times to get the desired amount.
         self.iteration_count = int(image_count / 30)
         self.unsplash_api_url = (
-            "https://api.unsplash.com/" "photos/random/?count=30)"
+            "https://api.unsplash.com/" "photos/random/?count=30"
         )  # noqa
         if not os.path.isdir(self.destination_dir):
             log.info(f"Creating non-existant {self.destination_dir}.")
