@@ -13,6 +13,7 @@ class Downloader:
     def __init__(self):
         log.info("Initializing downloader.")
         access_key = os.getenv("UNSPLASH_ACCESS_KEY", sys.argv[1])
+        self.headers = {"Authorization": "Client-ID " + access_key}
         self.time_to_sleep = os.getenv(
             "SLEEP_FOR", sys.argv[2]
         )  # Sleep for x seconds between each request.
@@ -20,9 +21,7 @@ class Downloader:
         self.destination_dir = os.getenv("DESTINATION_DIR", sys.argv[4])
 
         self.unsplash_api_url = (
-            "https://api.unsplash.com/"
-            f"photos/random/?count={image_count})"
-            f"&client_id={access_key}"
+            "https://api.unsplash.com/" f"photos/random/?count={image_count})"
         )
 
         if not os.path.isdir(self.destination_dir):
@@ -38,7 +37,7 @@ class Downloader:
         )
 
     def get_image_list(self):
-        res = requests.get(self.unsplash_api_url)
+        res = requests.get(self.unsplash_api_url, headers=self.headers)
 
         data = res.json()
 
